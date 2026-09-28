@@ -7,9 +7,9 @@ window.STB_DATA = {
     goalValue: 1000,
     originalGoalValue: 500,
     goalItems: 40,
-    gifted: 11,
-    received: 7,
-    committedValue: 615
+    gifted: 14,
+    received: 10,
+    committedValue: 715
   },
   contacts: {
     kelly: {name:"Kelly Van Vleet", email:"kellyross412@gmail.com", phone:"941-278-9118", venmo:"@Kelly-VANVLEET"},
@@ -54,6 +54,9 @@ window.STB_DATA = {
     {name:"Jameson Triple Triple Whiskey", donor:"Lindsey Masters", value:40, status:"Received", kind:"bottle"},
     {name:"Cash Contribution", donor:"Josh Lowenstein / Lowenstein family", value:50, status:"Received", kind:"cash"},
     {name:"Cash Contribution", donor:"Lindsay Nappo", value:100, status:"Received", kind:"cash"},
-    {name:"Woodford Reserve Bourbon", donor:"Erin Liddy", value:40, status:"Committed", kind:"bottle"}
+    {name:"Woodford Reserve Bourbon", donor:"Erin Liddy", value:40, status:"Committed", kind:"bottle"},
+    {name:"Cash Contribution", donor:"Joe Kempf", value:50, status:"Received", kind:"cash"},
+    {name:"Fiorelli Winery & Vineyard – Two Free Tastings", donor:"Fiorelli Winery & Vineyard", value:null, status:"Received", kind:"experience"},
+    {name:"Cash Contribution", donor:"Janielle Silliman / Ashlyn Silliman family", value:50, status:"Received", kind:"cash"}
   ]
 };
