@@ -134,7 +134,7 @@
     const items=(Array.isArray(D.basketItems)?D.basketItems:[]).filter(x=>x.kind!=='cash');
     const itemGrid=showItems ? `<ul class="basket-item-list">${items.map(x=>`<li><strong>${esc(x.name)}</strong> — ${x.value == null ? 'TBD' : '$'+money(x.value)}</li>`).join('')}</ul>` : '';
     return `<section class="basket-showcase" aria-label="Current basket with ${D.gala.gifted} contributions">
-      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_cart_slushi_KVV.png" alt="Stock the Bar cart illustration with Ninja SLUSHi, six documented bottles, shot glasses and gift certificates"></div>
+      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_cart_final_KVV.png" alt="Stock the Bar cart illustration with Ninja SLUSHi, six documented bottles, shot glasses and gift certificates"></div>
       <div class="basket-showcase-summary"><h3>${D.gala.gifted} donations and counting</h3><p><strong>$${money(basketValue())}</strong> Value</p><p class="progress-note">Includes received and pledged items. Estimated values shown below; unpriced and planned items are excluded from the total.</p></div>
       <p class="progress-note">Basket illustration includes received and pledged items.</p>
       ${itemGrid}

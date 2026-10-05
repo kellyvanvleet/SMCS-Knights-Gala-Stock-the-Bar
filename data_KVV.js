@@ -9,7 +9,7 @@ window.STB_DATA = {
     goalItems: 40,
     gifted: 20,
     received: 14,
-    committedValue: 1080,
+    committedValue: 1155,
     cashReceived: 435,
     cashSpent: 300,
     cashRemaining: 135,
@@ -66,7 +66,7 @@ window.STB_DATA = {
     {"name": "Cash Contribution", "donor": "Ian Green", "value": 20, "status": "Received", "kind": "cash"},
     {"name": "Cash Contribution", "donor": "Michelle DiMeo", "value": 50, "status": "Received", "kind": "cash"},
     {"name": "Cash Contribution", "donor": "Lorena Correa / Sophie Cardenas family", "value": 15, "status": "Received", "kind": "cash"},
-    {"name": "Michael’s On East Gift Certificate", "donor": "Michael’s On East", "value": null, "status": "Committed", "kind": "giftcard", "note": "Gift certificate confirmed; pickup pending. Value TBD."},
+    {"name": "Michael’s On East Gift Certificate", "donor": "Michael’s On East", "value": 75, "status": "Committed", "kind": "giftcard", "note": "Gift certificate confirmed at $75; pickup pending."},
     {"name": "Rattan Bar Cart", "donor": "Kelly Huston", "value": 200, "status": "Donated", "kind": "barware", "note": "Donated by Kelly Huston, room mom. $200 value."},
     {"name": "Ninja SLUSHi Professional Frozen Drink Maker – 96 oz", "donor": "Class donation funds", "value": 300, "status": "Purchased", "kind": "appliance", "note": ""}
   ]
