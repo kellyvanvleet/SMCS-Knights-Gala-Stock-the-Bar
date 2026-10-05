@@ -7,9 +7,13 @@ window.STB_DATA = {
     goalValue: 1000,
     originalGoalValue: 500,
     goalItems: 40,
-    gifted: 14,
-    received: 10,
-    committedValue: 715
+    gifted: 20,
+    received: 14,
+    committedValue: 1080,
+    cashReceived: 435,
+    cashSpent: 300,
+    cashRemaining: 135,
+    cashAllocated: 135
   },
   contacts: {
     kelly: {name:"Kelly Van Vleet", email:"kellyross412@gmail.com", phone:"941-278-9118", venmo:"@Kelly-VANVLEET"},
@@ -46,7 +50,7 @@ window.STB_DATA = {
   basketItems: [
     {name:"Caymus Cabernet Sauvignon", donor:"Nicole O’Malley", value:85, status:"Committed", kind:"bottle", image:"assets_KVV/caymus_KVV.jpg"},
     {name:"Don Julio Blanco", donor:"Elyse Manzer", value:55, status:"Committed", kind:"bottle"},
-    {name:"YETI 4 Shot Glasses + Carrying Case — Riverhead Green", donor:"Elyse Manzer", value:60, status:"Committed", kind:"barware"},
+    {name:"YETI Shot Glass Set + Carrying Case", donor:"Elyse Manzer", value:60, status:"Committed", kind:"barware"},
     {name:"Calusa Brewing Gift Card", donor:"Molly Otte", value:50, status:"Received", kind:"giftcard"},
     {name:"Cash Contribution", donor:"Gabrielle Boodoo / Emma Boodoo family", value:50, status:"Received", kind:"cash"},
     {name:"Santa Margherita Pinot Grigio", donor:"Lindsey Masters", value:25, status:"Received", kind:"bottle"},
@@ -56,7 +60,14 @@ window.STB_DATA = {
     {name:"Cash Contribution", donor:"Lindsay Nappo", value:100, status:"Received", kind:"cash"},
     {name:"Woodford Reserve Bourbon", donor:"Erin Liddy", value:40, status:"Committed", kind:"bottle"},
     {name:"Cash Contribution", donor:"Joe Kempf", value:50, status:"Received", kind:"cash"},
-    {name:"Fiorelli Winery & Vineyard – Two Free Tastings", donor:"Fiorelli Winery & Vineyard", value:null, status:"Received", kind:"experience"},
-    {name:"Cash Contribution", donor:"Janielle Silliman / Ashlyn Silliman family", value:50, status:"Received", kind:"cash"}
+    {name:"Fiorelli Winery & Vineyard – Two Free Tastings", donor:"Fiorelli Winery & Vineyard", value:30, status:"Received", kind:"experience", note:"Two complimentary tasting vouchers; expires 3/31/2027."},
+    {"name": "Cash Contribution", "donor": "Janielle Silliman / Ashlyn Silliman family", "value": 50, "status": "Received", "kind": "cash"},
+    {"name": "Cash Contribution", "donor": "Serena Chero", "value": 50, "status": "Received", "kind": "cash"},
+    {"name": "Cash Contribution", "donor": "Ian Green", "value": 20, "status": "Received", "kind": "cash"},
+    {"name": "Cash Contribution", "donor": "Michelle DiMeo", "value": 50, "status": "Received", "kind": "cash"},
+    {"name": "Cash Contribution", "donor": "Lorena Correa / Sophie Cardenas family", "value": 15, "status": "Received", "kind": "cash"},
+    {"name": "Michael’s On East Gift Certificate", "donor": "Michael’s On East", "value": null, "status": "Committed", "kind": "giftcard", "note": "Gift certificate confirmed; pickup pending. Value TBD."},
+    {"name": "Rattan Bar Cart", "donor": "Kelly Huston", "value": 200, "status": "Donated", "kind": "barware", "note": "Donated by Kelly Huston, room mom. $200 value."},
+    {"name": "Ninja SLUSHi Professional Frozen Drink Maker – 96 oz", "donor": "Class donation funds", "value": 300, "status": "Purchased", "kind": "appliance", "note": ""}
   ]
 };

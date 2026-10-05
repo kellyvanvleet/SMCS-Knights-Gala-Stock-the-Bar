@@ -5,7 +5,7 @@
 
   const esc = s => String(s ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const giftster = D.giftsterUrl;
-  const pct = D.gala.goalValue ? Math.min(100, Math.round(((D.gala.committedValue||0) / D.gala.goalValue)*100)) : 0;
+  const pct = D.gala.goalValue ? Math.min(100, Math.round(((D.gala.cashReceived||0) / D.gala.goalValue)*1000)/10) : 0;
   const money = n => Number(n||0).toLocaleString('en-US');
 
   function icon(name, cls='icon'){
@@ -44,16 +44,11 @@
     </nav>`;
   }
 
+  function basketValue(){
+    return (D.basketItems||[]).filter(x=>x.kind!=='cash' && !String(x.status).startsWith('Planned')).reduce((sum,x)=>sum+Number(x.value||0),0);
+  }
   function progressCard(){
-    return `<section class="progress-card" aria-label="Basket progress">
-      <div class="progress-head">
-        <div class="progress-title">${icon('gift','icon-lg')} <span>Basket Progress</span></div>
-        <div class="progress-percent">${pct}%</div>
-      </div>
-      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-      <div class="progress-meta"><span><strong>$${money(D.gala.committedValue)}</strong> committed toward $${money(D.gala.goalValue)} stretch goal</span><span><strong>${D.gala.gifted}</strong> total contributions</span></div>
-      <p class="progress-note"><strong>Original $${money(D.gala.originalGoalValue||500)} goal reached in 24 hours!</strong> We’re now working toward a <strong>$${money(D.gala.goalValue)} stretch goal</strong>. ${D.gala.received} contributions received · ${D.gala.gifted-D.gala.received} committed.</p>
-    </section>`;
+    return `<section class="progress-card" aria-label="Basket donations"><div class="progress-head"><div class="progress-title">${icon('gift','icon-lg')} <span>Our Basket</span></div></div><div class="progress-meta"><span><strong>${D.gala.gifted}</strong> donations</span><span><strong>$${money(basketValue())}</strong> Value</span></div><p class="progress-note">Includes received and pledged items. Some values are estimated; unpriced and planned items are excluded.</p></section>`;
   }
 
   function mailto(subject, body=''){
@@ -118,28 +113,30 @@
 
   function basketExtra(x){
     if(x.kind==='cash') return `<div class="basket-object basket-object-card cash-card"><small>CASH</small><strong>$${esc(x.value)}</strong><span>Contribution</span></div>`;
-    if(x.kind==='giftcard') return `<div class="basket-object basket-object-card gift-card"><small>GIFT CARD</small><strong>Calusa Brewing</strong><span>$${esc(x.value)}</span></div>`;
+    if(x.kind==='giftcard') return `<div class="basket-object basket-object-card gift-card"><small>GIFT CARD</small><strong>${esc(x.donor || x.name)}</strong><span>${x.value == null ? 'Value pending' : '$'+esc(x.value)}</span></div>`;
     if(x.kind==='barware') return `<div class="basket-object yeti-case"><div class="yeti-glasses"><i></i><i></i><i></i><i></i></div><strong>YETI</strong><span>4 Shot Glasses + Case</span><small>Riverhead Green</small></div>`;
     return `<div class="basket-object basket-object-card"><strong>${esc(compactName(x.name))}</strong></div>`;
   }
 
   function contributionCard(x){
-    const kindLabel={bottle:'Bottle',barware:'Barware',giftcard:'Gift Card',cash:'Cash',experience:'Experience'}[x.kind] || 'Contribution';
-    const amount=x.value==null ? `<span class="contribution-value">Value not counted yet</span>` : (x.kind==='cash' || x.kind==='giftcard' ? `<span class="contribution-value">${money(x.value)}</span>` : `<span class="contribution-value">Approx. ${money(x.value)}</span>`);
+    const kindLabel={bottle:'Bottle',barware:'Barware',giftcard:'Gift Card',cash:'Cash',experience:'Experience',appliance:'Appliance'}[x.kind] || 'Contribution';
+    const amount=x.value == null || (x.kind==='experience' && !x.value) ? `<span class="contribution-value">TBD</span>` : x.kind==='cash' || x.kind==='giftcard' ? `<span class="contribution-value">$${money(x.value)}</span>` : `<span class="contribution-value">${x.status==='Purchased'?'Purchase cost: $':'Approx. $'}${money(x.value)}</span>`;
     return `<article class="contribution-card">
       <div class="contribution-kind">${esc(kindLabel)}</div>
       <strong>${esc(x.name)}</strong>
       ${amount}
+      ${x.note ? `<span class="item-sub">${esc(x.note)}</span>` : ''}
       <span class="contribution-status ${String(x.status||'').toLowerCase().includes('received')?'received':'committed'}">${esc(x.status)}</span>
     </article>`;
   }
 
   function basketShowcase(showItems=false){
-    const items=Array.isArray(D.basketItems)?D.basketItems:[];
-    const itemGrid=showItems ? `<div class="contribution-grid">${items.map(contributionCard).join('')}</div>` : '';
+    const items=(Array.isArray(D.basketItems)?D.basketItems:[]).filter(x=>x.kind!=='cash');
+    const itemGrid=showItems ? `<ul class="basket-item-list">${items.map(x=>`<li><strong>${esc(x.name)}</strong> — ${x.value == null ? 'TBD' : '$'+money(x.value)}</li>`).join('')}</ul>` : '';
     return `<section class="basket-showcase" aria-label="Current basket with ${D.gala.gifted} contributions">
-      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_hero_KVV.jpg?v=20260925-1016" alt="Current Stock the Bar basket"></div>
-      <div class="basket-showcase-summary"><h3>${D.gala.gifted} contributions and counting</h3><p><strong>$${money(D.gala.committedValue)}</strong> committed toward our $${money(D.gala.goalValue)} stretch goal · ${D.gala.received} received · ${D.gala.gifted-D.gala.received} committed.</p></div>
+      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_cart_slushi_KVV.png" alt="Stock the Bar cart illustration with Ninja SLUSHi, six documented bottles, shot glasses and gift certificates"></div>
+      <div class="basket-showcase-summary"><h3>${D.gala.gifted} donations and counting</h3><p><strong>$${money(basketValue())}</strong> Value</p><p class="progress-note">Includes received and pledged items. Estimated values shown below; unpriced and planned items are excluded from the total.</p></div>
+      <p class="progress-note">Basket illustration includes received and pledged items.</p>
       ${itemGrid}
     </section>`;
   }
