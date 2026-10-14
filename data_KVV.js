@@ -7,7 +7,7 @@ window.STB_DATA = {
     goalValue: 1000,
     originalGoalValue: 500,
     goalItems: 40,
-    gifted: 20,
+    gifted: 25,
     received: 14,
     committedValue: 1155,
     cashReceived: 435,
@@ -50,7 +50,7 @@ window.STB_DATA = {
   basketItems: [
     {name:"Caymus Cabernet Sauvignon", donor:"Nicole O’Malley", value:85, status:"Committed", kind:"bottle", image:"assets_KVV/caymus_KVV.jpg"},
     {name:"Don Julio Blanco", donor:"Elyse Manzer", value:55, status:"Committed", kind:"bottle"},
-    {name:"YETI Shot Glass Set + Carrying Case", donor:"Elyse Manzer", value:60, status:"Committed", kind:"barware"},
+    {name:"YETI Shot Glass Set + Carrying Case", donor:"Elyse Manzer", value:60, status:"Received", kind:"barware"},
     {name:"Calusa Brewing Gift Card", donor:"Molly Otte", value:50, status:"Received", kind:"giftcard"},
     {name:"Cash Contribution", donor:"Gabrielle Boodoo / Emma Boodoo family", value:50, status:"Received", kind:"cash"},
     {name:"Santa Margherita Pinot Grigio", donor:"Lindsey Masters", value:25, status:"Received", kind:"bottle"},
@@ -68,6 +68,14 @@ window.STB_DATA = {
     {"name": "Cash Contribution", "donor": "Lorena Correa / Sophie Cardenas family", "value": 15, "status": "Received", "kind": "cash"},
     {"name": "Michael’s On East Gift Certificate", "donor": "Michael’s On East", "value": 75, "status": "Committed", "kind": "giftcard", "note": "Gift certificate confirmed at $75; pickup pending."},
     {"name": "Rattan Bar Cart", "donor": "Kelly Huston", "value": 200, "status": "Donated", "kind": "barware", "note": "Donated by Kelly Huston, room mom. $200 value."},
+    {name:"Whiskey Smoker Kit", donor:"Eileen Olson", value:null, status:"Donated", kind:"barware", note:"Dropped off at the front office; value TBD."},
+    {name:"Belvedere Organic Vodka – 1 L", donor:"Kelly Van Vleet", value:37.99, status:"Purchased", kind:"bottle"},
+    {name:"Siesta Key Toasted Coconut Rum – 750 mL", donor:"Kelly Van Vleet", value:26.99, status:"Purchased", kind:"bottle"},
+    {name:"Louis Bouillot Perle de Vigne Crémant de Bourgogne Brut – 750 mL", donor:"Kelly Van Vleet", value:21.99, status:"Purchased", kind:"bottle"},
+    {name:"Round Wooden Serving Tray with Black Metal Handles", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Black-and-Gold Cocktail Shaker", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Claridge’s: The Cocktail Book", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Black-and-White Geometric Coaster Set", donor:"", value:null, status:"Received", kind:"barware"},
     {"name": "Ninja SLUSHi Professional Frozen Drink Maker – 96 oz", "donor": "Class donation funds", "value": 300, "status": "Purchased", "kind": "appliance", "note": ""}
   ]
 };

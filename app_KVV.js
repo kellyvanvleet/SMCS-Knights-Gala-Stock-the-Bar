@@ -48,7 +48,7 @@
     return (D.basketItems||[]).filter(x=>x.kind!=='cash' && !String(x.status).startsWith('Planned')).reduce((sum,x)=>sum+Number(x.value||0),0);
   }
   function progressCard(){
-    return `<section class="progress-card" aria-label="Basket donations"><div class="progress-head"><div class="progress-title">${icon('gift','icon-lg')} <span>Our Basket</span></div></div><div class="progress-meta"><span><strong>${D.gala.gifted}</strong> donations</span><span><strong>$${money(basketValue())}</strong> Value</span></div><p class="progress-note">Includes received and pledged items. Some values are estimated; unpriced and planned items are excluded.</p></section>`;
+    return `<section class="progress-card" aria-label="Basket donations"><div class="progress-head"><div class="progress-title">${icon('gift','icon-lg')} <span>Our Basket</span></div></div><div class="progress-meta"><span><strong>${D.gala.gifted}</strong> donations</span><span><strong>$${money(basketValue())}</strong> Value</span></div><p class="progress-note">Includes received and pledged items.</p></section>`;
   }
 
   function mailto(subject, body=''){
@@ -134,9 +134,9 @@
     const items=(Array.isArray(D.basketItems)?D.basketItems:[]).filter(x=>x.kind!=='cash');
     const itemGrid=showItems ? `<ul class="basket-item-list">${items.map(x=>`<li><strong>${esc(x.name)}</strong> — ${x.value == null ? 'TBD' : '$'+money(x.value)}</li>`).join('')}</ul>` : '';
     return `<section class="basket-showcase" aria-label="Current basket with ${D.gala.gifted} contributions">
-      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_cart_final_KVV.png" alt="Stock the Bar cart illustration with Ninja SLUSHi, six documented bottles, shot glasses and gift certificates"></div>
-      <div class="basket-showcase-summary"><h3>${D.gala.gifted} donations and counting</h3><p><strong>$${money(basketValue())}</strong> Value</p><p class="progress-note">Includes received and pledged items. Estimated values shown below; unpriced and planned items are excluded from the total.</p></div>
-      <p class="progress-note">Basket illustration includes received and pledged items.</p>
+      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_actual_accessories_KVV.png" alt="Stock the Bar styling mockup with whiskey smoker kit, wooden serving tray, cocktail shaker, Claridge’s book, coasters, Ninja SLUSHi, nine bottles, YETI shot glasses and gift certificates"></div>
+      <div class="basket-showcase-summary"><h3>${D.gala.gifted} donations and counting</h3><p><strong>$${money(basketValue())}</strong> Value</p><p class="progress-note">Includes received and pledged items.</p></div>
+      <p class="progress-note">Styling mockup includes received and pledged items; decorative styling is proposed.</p>
       ${itemGrid}
     </section>`;
   }
