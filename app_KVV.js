@@ -130,11 +130,11 @@
     </article>`;
   }
 
-  function basketShowcase(showItems=false){
+  function basketShowcase(showItems=true){
     const items=(Array.isArray(D.basketItems)?D.basketItems:[]).filter(x=>x.kind!=='cash');
     const itemGrid=showItems ? `<ul class="basket-item-list">${items.map(x=>`<li><strong>${esc(x.name)}</strong> — ${x.value == null ? 'TBD' : '$'+money(x.value)}</li>`).join('')}</ul>` : '';
     return `<section class="basket-showcase" aria-label="Current basket with ${D.gala.gifted} contributions">
-      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_actual_accessories_KVV.png" alt="Stock the Bar styling mockup with whiskey smoker kit, wooden serving tray, cocktail shaker, Claridge’s book, coasters, Ninja SLUSHi, nine bottles, YETI shot glasses and gift certificates"></div>
+      <div class="basket-photo basket-photo-current"><img src="assets_KVV/basket_final_greenery_KVV.png" alt="Stock the Bar cart with greenery tucked inside the top shelf edge, nine bottles, Ninja SLUSHi, whiskey smoker kit, boxed YETI set, wooden tray, shaker, cocktail book, coasters, napkins and gift certificates"></div>
       <div class="basket-showcase-summary"><h3>${D.gala.gifted} donations and counting</h3><p><strong>$${money(basketValue())}</strong> Value</p><p class="progress-note">Includes received and pledged items.</p></div>
       <p class="progress-note">Styling mockup includes received and pledged items; decorative styling is proposed.</p>
       ${itemGrid}
@@ -165,7 +165,7 @@
 
       <div class="section-break"></div>
       <section class="section-head"><div class="eyebrow">A Toast to Generosity</div><h2>Our Basket</h2></section>
-      ${basketShowcase(false)}
+      ${basketShowcase(true)}
       <div class="inline-cta"><a class="btn" href="basket.html">Open Our Basket ${icon('arrow','icon-sm')}</a><a class="btn secondary" href="curated.html">Browse More Items</a></div>
 
       <div class="section-break"></div>

@@ -76,6 +76,9 @@ window.STB_DATA = {
     {name:"Black-and-Gold Cocktail Shaker", donor:"", value:null, status:"Received", kind:"barware"},
     {name:"Claridge’s: The Cocktail Book", donor:"", value:null, status:"Received", kind:"barware"},
     {name:"Black-and-White Geometric Coaster Set", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Black-and-Gold Snake Cocktail Napkins", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Ivory-and-Black Bird and Wreath Cocktail Napkins", donor:"", value:null, status:"Received", kind:"barware"},
+    {name:"Mixed Greenery with White Berries and Gold Sprigs", donor:"", value:null, status:"For display", kind:"decor"},
     {"name": "Ninja SLUSHi Professional Frozen Drink Maker – 96 oz", "donor": "Class donation funds", "value": 300, "status": "Purchased", "kind": "appliance", "note": ""}
   ]
 };
