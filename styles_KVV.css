@@ -332,3 +332,9 @@ h3{font-size:24px;line-height:1.15}
 
 .basket-item-list{margin:18px 0;padding-left:24px;line-height:1.65;color:var(--ink)}
 .basket-item-list li{padding:5px 0}
+
+/* Mobile: prevent decorative white masks from obscuring the Stock the Bar logo. */
+@media (max-width: 640px) {
+  .hero-logo-art::before,
+  .hero-logo-art::after { display: none; }
+}
